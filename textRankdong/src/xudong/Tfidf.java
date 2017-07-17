@@ -59,14 +59,41 @@ public class Tfidf {
 	 * @throws FileNotFoundException 
 	 */
 	public static Map<String,Float> tfidfCalculate(int D, Map<String,String> doc_words,Map<String,Float> tf) throws FileNotFoundException, IOException{
-		
+
+		HashMap<String,Float> tfidf=new HashMap<String, Float>();
+		for(String key:tf.keySet()){
+            int Dt=0;
+			for(Map.Entry<String, String> entry:doc_words.entrySet()){
+				
+				String[] words=entry.getValue().split(" ");
+				
+				List<String> wordlist=new ArrayList<String>();
+				for(int i=0;i<words.length;i++){
+					wordlist.add(words[i]);
+					
+				}
+				if(wordlist.contains(key)){
+					Dt++;
+				}
+			}
+			float idfvalue=(float) Math.log(Float.valueOf(D)/Dt);
+			tfidf.put(key, idfvalue * tf.get(key));
+			
+		}		
+		return tfidf;
+	}
+	
+	/**
+	 * 保存
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
+	 */
+	public static void saveIndex(String wordfile,String docfile,Map<String,String> doc_words) throws FileNotFoundException, IOException{
 		//单词索引和文档索引
 		int doc_num=1;
 		int word_num=1;
 		String wordok="";
 		String docok="";
-		String wordfile="f:/dataok1/words_index.txt";
-		String docfile="f:/dataok1/doc_index.txt";
 		for(Map.Entry<String, String> entry:doc_words.entrySet()){
 			
 			String filename=entry.getKey();
@@ -90,28 +117,6 @@ public class Tfidf {
 			
 		}
 		
-
-		HashMap<String,Float> tfidf=new HashMap<String, Float>();
-		for(String key:tf.keySet()){
-            int Dt=0;
-			for(Map.Entry<String, String> entry:doc_words.entrySet()){
-				
-				String[] words=entry.getValue().split(" ");
-				
-				List<String> wordlist=new ArrayList<String>();
-				for(int i=0;i<words.length;i++){
-					wordlist.add(words[i]);
-					
-				}
-				if(wordlist.contains(key)){
-					Dt++;
-				}
-			}
-			float idfvalue=(float) Math.log(Float.valueOf(D)/Dt);
-			tfidf.put(key, idfvalue * tf.get(key));
-			
-		}		
-		return tfidf;
 	}
 	
 }
