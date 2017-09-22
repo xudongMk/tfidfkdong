@@ -39,10 +39,10 @@
 [Test类main方法](https://github.com/xudongMk/tfidfkdong/blob/master/textRankdong/src/xudong/Test.java)
 
     String filepath="";//定义文档的文件路径，是一个文件夹
-	  String outputPath="";//定义输出文件
-		String docfile="";//定义文档索引输出路径
-		String wordfile="";//定义单词索引输出路径
-		ComputeTfIdf.compute(filepath, outputPath, docfile, wordfile);
+    String outputPath="";//定义输出文件
+    String docfile="";//定义文档索引输出路径
+    String wordfile="";//定义单词索引输出路径
+    ComputeTfIdf.compute(filepath, outputPath, docfile, wordfile);
 
 
 
