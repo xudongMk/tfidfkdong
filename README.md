@@ -20,9 +20,12 @@
         该类中定义了两个静态变量：一个是文档索引一个是单词索引
         static Map<String, Integer> docIndex=new HashMap<String, Integer>();
         static Map<String, Integer> wordIndex=new LinkedHashMap<String, Integer>();        
-        saveIndex方法：String wordfile,String docfile,Map<String,String> doc_words三个参数，该方法将步骤1中分完词的map传进来，处理成文档索引和单词索引并保存到文件中。
-        tfCalculate方法：String wordAll参数是分完词的文档内容，计算每个文档中单词的tf值，并返回一个map，key是单词，value是单词tf值
-        tfidfCalculate方法：int D, Map<String,String> doc_words,Map<String,Float> tf三个参数，D是所有文档的数量，doc_words是步骤1中分完词的map，tf是单个文档的单词的tf值。
+        
+saveIndex方法：String wordfile,String docfile,Map<String,String> doc_words三个参数，该方法将步骤1中分完词的map传进来，处理成文档索引和单词索引并保存到文件中。
+
+tfCalculate方法：String wordAll参数是分完词的文档内容，计算每个文档中单词的tf值，并返回一个map，key是单词，value是单词tf值
+
+tfidfCalculate方法：int D, Map<String,String> doc_words,Map<String,Float> tf三个参数，D是所有文档的数量，doc_words是步骤1中分完词的map，tf是单个文档的单词的tf值。
         
 3.程序主类
 
