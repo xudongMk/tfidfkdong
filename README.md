@@ -54,3 +54,5 @@ tfidfCalculate方法：int D, Map<String,String> doc_words,Map<String,Float> tf�
 
 此类是HFUT电商所杜非师兄编写，[他的github地址:](https://github.com/df19900725)
 
+本人自己写的一个简单的FileUtils类，用来读取文件夹或文件的下的内容并作相关的处理，然后保存到文本
+[FileUtils](https://github.com/xudongMk/tfidfkdong/blob/master/textRankdong/src/Files/FileUtils.java)
